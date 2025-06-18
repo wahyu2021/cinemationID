@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Daftar Film - CinemationID</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav id="navbar" class="scrolled">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo" style="opacity: 1"
+                    >CinemationID</a
+                >
+                <ul class="nav-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="movies.html" class="active">Film</a></li>
+                    <li><a href="promos.html">Promo</a></li>
+                    <li><a href="jadwal.html">Jadwal</a></li>
+                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                </ul>
+                <a href="movies.html" class="btn btn-primary">Beli Tiket</a>
+            </div>
+        </nav>
+
+        <main class="page-main">
+            <header class="page-header">
+                <h1>Semua Film</h1>
+            </header>
+
+            <section id="now-playing" class="content-section">
+                <h2 class="section-title">Sedang Tayang</h2>
+                <div class="movie-grid" id="now-playing-grid-full"></div>
+            </section>
+
+            <section id="coming-soon-target" class="content-section">
+                <h2 class="section-title">Segera Hadir</h2>
+                <div class="movie-grid" id="coming-soon-grid-full"></div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <a href="movies.html">Film</a>
+                    <a href="promos.html">Promo</a>
+                    <a href="jadwal.html">Jadwal</a>
+                    <a href="tentangkami.html">Tentang Kami</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2025 CinemationID. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <a href="#" id="back-to-top-btn" title="Kembali ke atas">&#8593;</a>
+
+        <script src="assets/data/data.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Filter film yang sedang tayang
+                const nowPlayingMoviesHome = moviesData.filter(
+                    (movie) => movie.status === "now-playing"
+                );
+                renderMovieCards(nowPlayingMoviesHome, "now-playing-grid-full");
+
+                // Filter film yang akan mendatang
+                const comingSoonMoviesHome = moviesData.filter(
+                    (movie) => movie.status === "coming-soon"
+                );
+                renderMovieCards(comingSoonMoviesHome, "coming-soon-grid-full");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CinemationID - Rasakan Pengalaman Menonton Terbaik</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">CinemationID</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="movies.html">Film</a></li>
+                    <li><a href="promos.html">Promo</a></li>
+                    <li><a href="jadwal.html">Jadwal</a></li>
+                    <li><a href="tentangkami.html">Tentang Kami</a></li>
+                </ul>
+                <a href="movies.html" class="btn btn-primary">Beli Tiket</a>
+            </div>
+        </nav>
+
+        <header id="hero">
+            <div class="hero-content">
+                <h1 id="hero-title">CinemationID</h1>
+                <p>Rasakan Pengalaman Menonton Terbaik</p>
+            </div>
+            <div class="hero-overlay"></div>
+        </header>
+
+        <main>
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Sedang Tayang</h2>
+                    <a href="movies.html" class="btn-view-all"
+                        >Lihat Semua &rarr;</a
+                    >
+                </div>
+                <div class="movie-grid" id="now-playing-grid-home"></div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Segera Hadir</h2>
+                    <a
+                        href="movies.html#coming-soon-target"
+                        class="btn-view-all"
+                        >Lihat Semua &rarr;</a
+                    >
+                </div>
+                <div class="movie-grid" id="coming-soon-grid-home"></div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Promo & Penawaran</h2>
+                    <a href="promos.html" class="btn-view-all"
+                        >Lihat Semua &rarr;</a
+                    >
+                </div>
+                <div class="promo-grid" id="promo-grid-home"></div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <a href="movies.html">Film</a>
+                    <a href="promos.html">Promo</a>
+                    <a href="jadwal.html">Jadwal</a>
+                    <a href="tentangkami.html">Tentang Kami</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2025 CinemationID. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <a href="#" id="back-to-top-btn" title="Kembali ke atas">&#8593;</a>
+
+        <script src="assets/data/data.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const nowPlayingMoviesHome = moviesData
+                    .filter((movie) => movie.status === "now-playing")
+                    .slice(0, 4);
+                renderMovieCards(nowPlayingMoviesHome, "now-playing-grid-home");
+
+                const comingSoonMoviesHome = moviesData
+                    .filter((movie) => movie.status === "coming-soon")
+                    .slice(0, 4);
+                renderMovieCards(comingSoonMoviesHome, "coming-soon-grid-home");
+
+                const promosHome = promosData.slice(0, 2);
+                renderPromoCards(promosHome, "promo-grid-home");
+            });
+        </script>
+    </body>
+</html>
